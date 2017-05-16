@@ -1,0 +1,94 @@
+page 1
+
+
+public class Complex {
+
+    public final double re;
+
+    public final double im;
+
+    public Complex(double re, double im) {
+        this.re = re;
+        this.im = im;
+    }
+
+    public Complex(double re) {
+        this(re, 0);
+    }
+
+    public Complex divide(Complex other) {
+        return new Complex(
+                this.re / other.re,
+                this.im / other.im);
+    }
+
+    public Complex minus(Complex other){
+        return new Complex
+                (this.re-other.re,
+                this.im-other.im);
+    }
+
+
+    public Complex  times(Complex other){
+        return new Complex
+                (this.re*other.re-this.im*other.im,
+                        this.im*other.im+this.re*other.re);
+
+    }
+
+    public Complex conjugate(Complex other) {
+        return new Complex
+                (this.re, -other.im);
+    }
+    }
+
+
+
+
+
+page 2
+
+
+
+
+
+
+public class TestComplex {
+
+    public static void main(String[] args) {
+        Complex a = new Complex(1, 3);
+        Complex b = new Complex(3, 4);
+        Complex c = a.divide(b);
+        Complex d = a.minus(b);
+        Complex e = a.times(b);
+        Complex f = a.conjugate(b);
+
+        System.out.println();
+        System.out.println("Divide complex number");
+        System.out.println(c.re);
+        System.out.println(c.im);
+
+        System.out.println();
+        System.out.println("minus complex number");
+        System.out.println(d.re);
+        System.out.println(d.im);
+
+        System.out.println();
+        System.out.println("times complex number");
+        System.out.println(e.re);
+        System.out.println(e.im);
+
+
+        System.out.println();
+        System.out.println("conjugate complex number ");
+        System.out.println(f.re);
+        System.out.println(f.im);
+
+
+
+
+
+
+
+    }
+}
